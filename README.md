@@ -5,6 +5,7 @@ Utility library for Fortran.
 ```
 git clone https://github.com/Nkzono99/futils.git
 cd futils
+make builddir
 make
 ```
 
