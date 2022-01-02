@@ -1,6 +1,6 @@
 .PHONY: all clean
 
-PROGRAM = build\lib\libfutils.a
+PROGRAM = build/lib/libfutils.a
 OBJS = \
 	build/vector.o \
 	build/str.o
@@ -21,6 +21,8 @@ FLAGS = -module $(INCLUDE) -I$(INCLUDE)
 # FC = gfortran
 # FLAGS = -J$(INCLUDE) -I$(INCLUDE) 
 
+LFLAGS = 
+FLAGS = $(IFLAGS) $(LFLAGS) 
 AR = ar rc
 
 RM = rm -f
@@ -28,7 +30,7 @@ MKDIR = mkdir -p
 
 ifeq ($(OS),Windows_NT)
 	RM = powershell del
-	MKDIR = mkdir
+	MKDIR = powershell mkdir
 endif
 
 all: $(PROGRAM)
@@ -36,18 +38,18 @@ all: $(PROGRAM)
 $(PROGRAM): $(OBJS)
 	$(AR) $(PROGRAM) $^
 
-build/vector.o: src\vector.F90 
-	$(FC) $(FLAGS) -c $< -o build/vector.o
+build/vector.o: src/vector.F90 
+	$(FC) -c $< -o build/vector.o $(FLAGS)
 
-build/str.o: src\str.F90 
-	$(FC) $(FLAGS) -c $< -o build/str.o
+build/str.o: src/str.F90 
+	$(FC) -c $< -o build/str.o $(FLAGS)
 
 test:  build/test
 
 builddir:
 	-$(MKDIR) build
-	-$(MKDIR) build\test
-	-$(MKDIR) build\test\lib
+	-$(MKDIR) build/test
+	-$(MKDIR) build/test/lib
 	-$(MKDIR) $(LIBRARY_TO_BUILD)
 	-$(MKDIR) $(INCLUDE)
 
