@@ -29,14 +29,7 @@ contains
         double precision, intent(in) :: a(:)
         double precision :: ret
 
-        ret = sqrt(sum(a(:)*a(:)))
-    end function
-
-    pure function norm2(a) result(ret)
-        double precision, intent(in) :: a(:)
-        double precision :: ret
-
-        ret = sum(a(:)*a(:))
+        ret = sqrt(norm2(a))
     end function
 
     pure subroutine normalize(a)
@@ -46,7 +39,7 @@ contains
 
         nrm = norm(a)
 
-        if (nrm /= 0) then
+        if (nrm /= 0.0d0) then
             a = a/nrm
         end if
     end subroutine
@@ -58,10 +51,10 @@ contains
 
         nrm = norm(a)
 
-        if (nrm /= 0) then
+        if (nrm /= 0.0d0) then
             ret = a/nrm
         else
-            ret = 0
+            ret = 0.0d0
         end if
     end function
 
@@ -81,7 +74,7 @@ contains
 
         d = dot(a, ret)
         do i = 1, n
-            if (a(i) /= 0) then
+            if (a(i) /= 0.0d0) then
                 ret(i) = -1.0d0/a(i)*(d - a(i)*ret(i))
                 return
             end if
