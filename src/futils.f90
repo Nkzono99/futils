@@ -2,7 +2,6 @@ module futils
   use m_str, only: str
   use m_vector, only: dot, &
                       cross, &
-                      norm, &
                       normalize, &
                       normalized, &
                       perp_vec, &

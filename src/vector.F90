@@ -25,19 +25,12 @@ contains
         ret(3) = a(1)*b(2) - a(2)*b(1)
     end function
 
-    pure function norm(a) result(ret)
-        double precision, intent(in) :: a(:)
-        double precision :: ret
-
-        ret = sqrt(norm2(a))
-    end function
-
     pure subroutine normalize(a)
         double precision, intent(inout) :: a(:)
 
         double precision :: nrm
 
-        nrm = norm(a)
+        nrm = norm2(a)
 
         if (nrm /= 0.0d0) then
             a = a/nrm
@@ -49,7 +42,7 @@ contains
         double precision :: ret(3)
         double precision :: nrm
 
-        nrm = norm(a)
+        nrm = norm2(a)
 
         if (nrm /= 0.0d0) then
             ret = a/nrm
