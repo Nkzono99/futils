@@ -128,6 +128,7 @@ end module
 !         procedure :: switch_to_tmp_buffer => elementList_switch_to_tmp_buffer
 !         procedure :: destroy => elementList_destroy
 !         procedure :: append => elementList_append
+!         procedure :: get => elementList_get
 !     end type
 
 !     private
@@ -190,5 +191,13 @@ end module
 
 !           deallocate(self%buffer)
 !       end subroutine
+
+!       function elementList_get(self, i) result(ret)
+!           class(t_ElementList), intent(in) :: self
+!           integer, intent(in) :: i
+!           type(t_Element) :: ret
+
+!           ret = self%buffer(i)
+!       end function
 
 ! end module
