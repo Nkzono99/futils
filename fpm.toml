@@ -1,8 +1,8 @@
 name = "futils"
-version = "0.1.4"
+version = "0.2.0"
 license = "Mit"
 author = "Nkzono99"
-maintainer = "71783375+Nkzono99@users.noreply.github.com"
+maintainer = "210x218x@gsuite.kobe-u.ac.jp"
 copyright = "Copyright 2022, Nkzono99"
 
 [build]
