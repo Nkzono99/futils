@@ -1,9 +1,10 @@
 {
     "fortran-ls.lowercaseIntrinsics": true,
     "fortran.formatting.formatter": "fprettify",
-    "fortran.linterExtraArgs": [
+    "fortran.linter.ExtraArgs": [
         "-Wall",
         "-I${workspaceFolder}/src",
         "-I${workspaceFolder}/test",
     ],
+    "makefile.configureOnOpen": false,
 }
