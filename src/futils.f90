@@ -9,7 +9,6 @@ module futils
                       rot3d_y, &
                       rot3d_z
   use m_get_default, only: get_default
-  use m_timer_mpi, only: t_TimerMPI
   implicit none
 
 contains
