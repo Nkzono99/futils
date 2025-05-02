@@ -10,9 +10,5 @@ auto-executables = true
 auto-tests = true
 auto-examples = true
 
-[dependencies]
-stdlib.git = "https://github.com/fortran-lang/stdlib"
-stdlib.branch = "stdlib-fpm"
-
 [install]
 library = true
